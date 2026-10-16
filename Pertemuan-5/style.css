@@ -1,0 +1,146 @@
+/* ===== Reset sederhana ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Warna tema terang (default) ===== */
+:root {
+  --bg: #f4f6fb;
+  --teks: #222222;
+  --kartu: #ffffff;
+  --header: #3b6ef5;
+  --tombol: #3b6ef5;
+  --tombol-teks: #ffffff;
+  --bayangan: rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Warna tema gelap (aktif saat body punya class "dark") ===== */
+body.dark {
+  --bg: #121826;
+  --teks: #e8ecf5;
+  --kartu: #1e2638;
+  --header: #1b2a52;
+  --tombol: #6f95ff;
+  --tombol-teks: #0d1220;
+  --bayangan: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--teks);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ===== Header ===== */
+.header {
+  background-color: var(--header);
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+}
+
+/* ===== Container: lebar memakai persen ===== */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+/* ===== Profil ===== */
+.profil {
+  background-color: var(--kartu);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--bayangan);
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 30px;
+  transition: background-color 0.3s;
+}
+
+.foto {
+  max-width: 100%;   /* gambar tidak melebihi container */
+  height: auto;
+  width: 170px;
+  border-radius: 50%;
+  border: 4px solid var(--header);
+  margin-bottom: 15px;
+}
+
+.profil h2 {
+  margin-bottom: 10px;
+}
+
+.profil p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+/* ===== Tombol ===== */
+.tombol-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  background-color: var(--tombol);
+  color: var(--tombol-teks);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* ===== Hobi & Keterampilan ===== */
+.hobi h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Default (HP, < 768px): kartu 1 kolom */
+.kartu-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.kartu {
+  background-color: var(--kartu);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--bayangan);
+  padding: 20px;
+  transition: background-color 0.3s;
+}
+
+.kartu h3 {
+  margin-bottom: 8px;
+  color: var(--tombol);
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+}
+
+/* ===== Media Query: layar minimal 768px, kartu 3 kolom ===== */
+@media (min-width: 768px) {
+  .kartu-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
